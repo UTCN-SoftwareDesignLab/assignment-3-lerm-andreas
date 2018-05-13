@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Add </h1>
+<form action="#" th:action="@{/createPatientForm}" th:object="${patient}" method="post">
+    <p>Name:    <input type="text" th:field="*{name}" /></p>
+
+
+    <p>Identity card number:   <input type="text" th:field="*{identityCardNumber}" /></p>  <td th:if="${#fields.hasErrors('identityCardNumber')}" th:errors="*{identityCardNumber}">IdentityCardNumber Error</td>
+
+
+    <p>Personal numerical code:   <input type="text" th:field="*{personalNumericalCode}" /></p> <td th:if="${#fields.hasErrors('personalNumericalCode')}" th:errors="*{personalNumericalCode}">PersonalNumericalCode Error</td>
+
+
+    <p>Date of birth:     <input type="date" th:field="*{dateOfBirth}" /></p> <td th:if="${#fields.hasErrors('dateOfBirth')}" th:errors="*{dateOfBirth}">DateOfBirth Error</td>
+
+
+    <p>Address     <input type="text" th:field="*{address}" /></p> <td th:if="${#fields.hasErrors('address')}" th:errors="*{address}">Address Error</td>
+
+    <p><input type="submit" value="Verify patient" />
+        <button type="submit" formaction="/createPatient"  value="Create patient" >Create patient</button>
+
+</form>
+
+</body>
+</html>

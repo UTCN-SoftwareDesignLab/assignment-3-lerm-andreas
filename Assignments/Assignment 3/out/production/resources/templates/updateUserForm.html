@@ -1,0 +1,18 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Select the user you want to update</h1>
+<form action="#" th:action="@{/updateUserForm}" th:object="${user}" method="post">
+    <p>Username:   <input type="text" th:field="*{userName}" /></p>  <td th:if="${#fields.hasErrors('userName')}" th:errors="*{userName}">Username Error</td>
+    <p>Password:    <input type="text" th:field="*{password}" />     <td th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password Error</td>
+    <p>Role     <input type="text" th:field="*{role}" /></p>
+    <p><input type="submit" value="Validate user" />
+    </p>
+    <button type="submit" formaction="/updateUser"  value="Update user" >Update user</button>
+</form>
+</body>
+</html>

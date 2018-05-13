@@ -1,0 +1,26 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>Add details to patient's consultation </h1>
+<form action="#" th:action="@{/updateConsultationForm}" th:object="${consultation}" method="post">
+    <p>Name of the doctor:    <input type="text" th:field="*{doctorName}" /></p> <td th:if="${#fields.hasErrors('doctorName')}" th:errors="*{doctorName}">DoctorName Error</td>
+
+    <p>Identity card number:  <input type="text" th:field="*{patientIdentityCardNumber}" /></p> <td th:if="${#fields.hasErrors('patientIdentityCardNumber')}" th:errors="*{patientIdentityCardNumber}">PatientIdentityCardNumber Error</td>
+
+    <p>Date:                  <input type="date" th:field="*{date}" /></p> <td th:if="${#fields.hasErrors('date')}" th:errors="*{date}">Date Error</td>
+
+
+    <p>New description:       <input type="text" th:field="*{description}" /></p>  <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</td>
+
+
+    <p><input type="submit" value="Verify consultation" />
+        <button type="submit" formaction="/updateConsultation"  value="Add details" >Add details</button>
+
+</form>
+
+</body>
+</html>

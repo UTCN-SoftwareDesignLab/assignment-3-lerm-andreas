@@ -1,0 +1,19 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Getting Started: Handling Form Submission</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+<body>
+<h1>View patients's consultations </h1>
+<form action="#" th:action="@{/getConsultationForm}" th:object="${patient}" method="post">
+
+    <p>Identity card number:  <input type="text" th:field="*{identityCardNumber}" /></p>  <td th:if="${#fields.hasErrors('identityCardNumber')}" th:errors="*{identityCardNumber}">IdentityCardNumber Error</td>
+
+    <p><input type="submit" value="Verify consultation" />
+        <button type="submit" formaction="/getConsultation"  value="View consultations" >View consultations</button>
+
+</form>
+
+</body>
+</html>
