@@ -62,7 +62,7 @@ public class SecretaryController {
     }
 
     @PostMapping("/createPatientForm")
-    public String createPatientFormGet(@ModelAttribute("patient") @Valid Patient patientDto, BindingResult bindingResult) {
+    public String createPatientFormGet(@ModelAttribute("patient") @Valid PatientDto patientDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "addPatientForm";
         }
@@ -89,7 +89,7 @@ public class SecretaryController {
     }
 
     @PostMapping("/updatePatientForm")
-    public String updatePatientFormGet(@ModelAttribute("patient") @Valid Patient patientDto, BindingResult bindingResult) {
+    public String updatePatientFormGet(@ModelAttribute("patient") @Valid PatientDto patientDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "updatePatientForm";
         }
@@ -117,7 +117,7 @@ public class SecretaryController {
     }
 
     @PostMapping("/createConsultationForm")
-    public String createConsultationFormGet(@ModelAttribute("consultation") @Valid Consultation consultationDto, BindingResult bindingResult) {
+    public String createConsultationFormGet(@ModelAttribute("consultation") @Valid ConsultationDto consultationDto, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
             return "addConsultationForm";
         }
@@ -129,7 +129,7 @@ public class SecretaryController {
         consultationService.createConsultation(consultationDto);
         List<Consultation> consultationDtoList = consultationService.getAll();
 
-        ModelAndView mav = new ModelAndView("consultation_list");
+        ModelAndView mav = new ModelAndView("cons_list");
 
         mav.addObject("consultationDtoList", consultationDtoList);
 

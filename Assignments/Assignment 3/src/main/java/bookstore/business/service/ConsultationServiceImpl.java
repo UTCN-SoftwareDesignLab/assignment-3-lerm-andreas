@@ -62,13 +62,14 @@ public class ConsultationServiceImpl implements ConsultationService {
     }
 
     @Override
-    public void updateConsultation(ConsultationDto consultationDto) {
+    public Consultation updateConsultation(ConsultationDto consultationDto) {
         Patient patient = patientRepository.findByIdentityCardNumber(consultationDto.getPatientIdentityCardNumber());
         User1 doctor = userRepository.findByUserName(consultationDto.getDoctorName());
         Date date = consultationDto.getDate();
         String newDescription = consultationDto.getDescription();
         Consultation consultation = consultationRepository.findByDoctorAndPatientAndDate(doctor,patient,date);
-         consultationRepository.updateConsultation(newDescription,consultation.getId());
-
+        Long id = consultation.getId();
+         consultationRepository.updateConsultation(newDescription,id);
+         return consultation;
     }
 }

@@ -1,19 +1,9 @@
 package bookstore.presentation;
 
-import bookstore.business.dto.BookDto;
 import bookstore.business.dto.UserDto1;
-import bookstore.business.service.BookService;
 import bookstore.business.service.UserService1;
-import bookstore.data.entity.Book;
 import bookstore.data.entity.User1;
-import bookstore.report.CSVReport;
-import bookstore.report.PDFReport;
-import org.apache.pdfbox.pdmodel.PDDocument;
-import org.apache.pdfbox.pdmodel.PDPage;
-import org.apache.pdfbox.pdmodel.PDPageContentStream;
-import org.apache.pdfbox.pdmodel.font.PDType1Font;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
@@ -24,26 +14,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import java.io.File;
-import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
 
 @Controller
 public class AdministratorController {
 
     @Autowired
-    BookService bookService;
-
-    @Autowired
     UserService1 userService;
 
     @Autowired
-    public  AdministratorController(final BookService bookService, final UserService1 userService){
-        this.bookService = bookService;
+    public  AdministratorController(final UserService1 userService){
         this.userService=userService;
     }
 
@@ -141,6 +122,16 @@ public class AdministratorController {
         return modelAndView;
     }
 
+    @PostMapping("/getUsers")
+    public ModelAndView getUsers() {
+        List<User1> userDtoList = userService.getAll();
+
+        ModelAndView modelAndView = new ModelAndView("users1_list");
+
+        modelAndView.addObject("userDtoList1", userDtoList);
+        return modelAndView;
+    }
+
     @RequestMapping(value = "/login", method = RequestMethod.GET)
     public String showLogin(Model model,HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession(true);
@@ -150,6 +141,8 @@ public class AdministratorController {
         }
         return "login";
     }
+
+
 
 }
 

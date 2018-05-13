@@ -7,10 +7,10 @@
 <body>
 <h1>Add </h1>
 <form action="#" th:action="@{/createPatientForm}" th:object="${patient}" method="post">
-    <p>Name:    <input type="text" th:field="*{name}" /></p>
+    <p>Name:    <input type="text" th:field="*{name}" /></p>    <td th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</td>
 
 
-    <p>Identity card number:   <input type="text" th:field="*{identityCardNumber}" /></p>  <td th:if="${#fields.hasErrors('identityCardNumber')}" th:errors="*{identityCardNumber}">IdentityCardNumber Error</td>
+    <p>Identity card number:   <input type="text" th:field="*{identityCardNumber}" /></p>
 
 
     <p>Personal numerical code:   <input type="text" th:field="*{personalNumericalCode}" /></p> <td th:if="${#fields.hasErrors('personalNumericalCode')}" th:errors="*{personalNumericalCode}">PersonalNumericalCode Error</td>

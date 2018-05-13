@@ -35,8 +35,8 @@ public class CachingConsultationService implements ConsultationService {
     }
 
     @Override
-    public void updateConsultation(ConsultationDto consultationDto) {
-        origin.updateConsultation(consultationDto);
+    public Consultation updateConsultation(ConsultationDto consultationDto) {
+        return origin.updateConsultation(consultationDto);
     }
 
 

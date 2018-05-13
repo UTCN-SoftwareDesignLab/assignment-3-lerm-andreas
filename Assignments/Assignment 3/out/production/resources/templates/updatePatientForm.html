@@ -8,7 +8,7 @@
 <h1>Update patient </h1>
 <form action="#" th:action="@{/updatePatientForm}" th:object="${patient}" method="post">
 
-    <p>Identity card number:   <input type="text" th:field="*{identityCardNumber}" /></p>  <td th:if="${#fields.hasErrors('identityCardNumber')}" th:errors="*{identityCardNumber}">IdentityCardNumber Error</td>
+    <p>Identity card number:   <input type="text" th:field="*{identityCardNumber}" /></p>
 
 
     <p>Personal numerical code:   <input type="text" th:field="*{personalNumericalCode}" /></p>  <td th:if="${#fields.hasErrors('personalNumericalCode')}" th:errors="*{personalNumericalCode}">PersonalNumericalCode Error</td>

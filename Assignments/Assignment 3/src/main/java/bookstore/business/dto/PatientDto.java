@@ -10,12 +10,12 @@ import javax.validation.constraints.Size;
 import java.util.Date;
 
 public class PatientDto {
+
+    @Size(min=3,message = "The name must consist of at least 3 characters!")
     private String name;
-    @Size(min=5,max=5,message = "The identity card number must consist of exactly 5 characters!")
-    @UniqueElements
     private Long identityCardNumber;
 
-    @Size(min=5,max=5,message = "The identity card number must consist of exactly 5 characters!")
+    @Size(min=5,max=5,message = "The personal numerical code must consist of exactly 5 characters!")
     private String personalNumericalCode;
     @NotNull
     @DateTimeFormat(pattern = "yyyy-MM-dd")

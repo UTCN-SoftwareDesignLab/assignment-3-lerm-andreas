@@ -22,7 +22,7 @@ public interface ConsultationService {
     List<Consultation> findByPatient(PatientDto patientDto);
 
     @Transactional
-    void updateConsultation(ConsultationDto consultationDto);
+    Consultation updateConsultation(ConsultationDto consultationDto);
 
 
 }

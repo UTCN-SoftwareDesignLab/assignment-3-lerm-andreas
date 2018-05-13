@@ -1,7 +1,6 @@
 package bookstore.business.service;
 
 import bookstore.business.dto.UserDto1;
-import bookstore.data.entity.Book;
 import bookstore.data.entity.User1;
 import bookstore.data.repository.UserRepository1;
 import org.springframework.beans.factory.annotation.Autowired;

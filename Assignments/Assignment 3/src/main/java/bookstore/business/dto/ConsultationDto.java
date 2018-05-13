@@ -24,8 +24,6 @@ public class ConsultationDto {
     @Size(min = 6, message = "The username of the doctor must consist of at least 6 characters!")
     private String doctorName;
 
-  //  @Size(min=5,message = "The identity card number must consist of exactly 5 characters!")
-  //  @UniqueElements
     private Long patientIdentityCardNumber;
 
     @Size(min=5,message = "The description must consist of at least 5 characters")

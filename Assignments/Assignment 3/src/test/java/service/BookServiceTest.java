@@ -1,14 +1,9 @@
 package service;
 
-import bookstore.business.service.BookService;
-import bookstore.business.service.BookServiceImpl;
-import bookstore.data.entity.Book;
-import bookstore.data.repository.BookRepository;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.springframework.test.context.ContextConfiguration;

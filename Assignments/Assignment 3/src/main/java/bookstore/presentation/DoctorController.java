@@ -20,6 +20,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.validation.Valid;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -96,27 +97,17 @@ public class DoctorController {
 
     @PostMapping("/updateConsultation")
     public ModelAndView updateConsultation(@ModelAttribute("consultation") ConsultationDto consultationDto) {
-        consultationService.updateConsultation(consultationDto);
-
-        List<Consultation> consultationDtoList = consultationService.getAll();
-
+        Consultation consultation=consultationService.updateConsultation(consultationDto);
+       /* List<Consultation> consultationDtoList = consultationService.getAll();
         ModelAndView mav = new ModelAndView("consultation_list");
+        mav.addObject("consultationDtoList", consultationDtoList);*/
 
+       List<Consultation> consultationDtoList = new ArrayList<>();
+       consultationDtoList.add(consultation);
+        ModelAndView mav = new ModelAndView("consultation_list");
         mav.addObject("consultationDtoList", consultationDtoList);
 
         return mav;
     }
 
-   /* @GetMapping("/getConsultations")
-    public String findConsultationsForm(PatientDto patientDto){
-        return "/getConsultations";
-    }
-
-    @PostMapping("/getConsultations")
-    public ModelAndView getAllConsultationsByPatient(PatientDto patientDto){
-        List<Consultation> consultationDtoList = consultationService.findByPatient(patientDto);
-        ModelAndView mav = new ModelAndView("getConsultations");
-        mav.addObject("consultationDtoList", consultationDtoList);
-        return mav;
-    }*/
 }

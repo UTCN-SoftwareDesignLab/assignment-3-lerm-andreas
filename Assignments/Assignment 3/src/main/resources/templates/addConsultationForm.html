@@ -15,7 +15,7 @@
     <p>Name of the doctor:    <input type="text" id="name" th:field="*{doctorName}" /></p> <td th:if="${#fields.hasErrors('doctorName')}" th:errors="*{doctorName}">DoctorName Error</td>
 
 
-    <p>Identity card number:  <input type="text" id="identity" th:field="*{patientIdentityCardNumber}" /></p>  <td th:if="${#fields.hasErrors('patientIdentityCardNumber')}" th:errors="*{patientIdentityCardNumber}">PatientIdentityCardNumber Error</td>
+    <p>Identity card number:  <input type="text" id="identity" th:field="*{patientIdentityCardNumber}" /></p>
 
 
     <p>Description:           <input type="text" id="description" th:field="*{description}" /></p>  <td th:if="${#fields.hasErrors('description')}" th:errors="*{description}">Description Error</td>

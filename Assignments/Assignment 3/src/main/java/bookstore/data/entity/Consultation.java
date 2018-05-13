@@ -12,11 +12,11 @@ public class Consultation {
     private Long id;
     private Date date;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "patient_id")
     private Patient patient;
 
-    @ManyToOne
+    @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.LAZY, optional = false)
     @JoinColumn(name = "doctor_id")
     private User1 doctor;
 
@@ -70,7 +70,5 @@ public class Consultation {
     public String getDescription() {
         return description;
     }
-
-
 
 }
